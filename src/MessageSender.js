@@ -7,8 +7,16 @@ import './MessageSender.css'
 
 function MessageSender() {
 
+    const [input, setInput] = React.useState("");
+    const [imageUrl, setImageUrl] = React.useState("");
+
     const handleSubmit = e => {
         e.preventDefault();
+
+        // some db stuff
+
+        setInput("");
+        setImageUrl("");
     }
 
     return (
@@ -16,8 +24,8 @@ function MessageSender() {
             <div className="messageSender__top">
                 <Avatar/>
                 <form>
-                <input placeholder="What's on your mind."/>
-                <input placeholder="image URL (optional)"/>
+                <input value={input} onChange={(e) => setInput(e.target.value)}  className="messageSender__input" placeholder="What's on your mind?"/>
+                <input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder="image URL (optional)"/>
                 <button onClick={handleSubmit} type="submit">Hidden Submit</button>
                 </form>
             </div>
